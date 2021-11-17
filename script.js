@@ -4,6 +4,7 @@ var createPwBtn = document.querySelector("#create");
 var checkboxes = document.querySelectorAll(".checkbox");
 var pwLengthEl = document.querySelector('#charCountSlider');
 var form = document.querySelector('.form-container');
+var sliderTextView = document.querySelector('#charCount')
 
 // Define constants
 const lowers = 'abcdefghijklmnopqrstuvwxyz';
@@ -17,13 +18,21 @@ const handleFormToggle = () => {
   var formWrapper = document.querySelector("#pw-criteria-form");
   var closed = formWrapper.style.display !== "block";
   if (closed) {
-    // TODO: change generateBtn style by adding a 'cancel' class
     formWrapper.style.display = "block";
+    generateBtn.className = "btn cancel"
   } else {
-    // TODO: change generateBtn style by removing the 'cancel' class
     formWrapper.style.display = "none";
+    generateBtn.className = "btn"
+    form.reset();
   }
 };
+
+// Set count on page load
+sliderTextView.innerHTML = pwLengthEl.value;
+// Update current slider value
+pwLengthEl.oninput = function() {
+  sliderTextView.innerHTML = this.value;
+}
 
 // Add event listener to buttons
 generateBtn.addEventListener("click", handleFormToggle);
@@ -35,7 +44,7 @@ const getRandomChar = (charType) => {
   return charType[char]
 };
 
-/** Returns a String of character combining character types 
+/** Returns a String of character combining character types
  * based on the forms selected checkboxes */
 function makeCharacterSet() {
   var selected = [];
