@@ -6,6 +6,58 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
     <link rel="stylesheet" href="style.css" />
+
+
+    <style>
+
+      .form-popup {
+        display: none; /* enable when done */
+        margin: 0 auto;
+        max-width: 450px;
+        padding: 30px 40px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .form-container {
+        text-align: center;
+      }
+      .slide-container {
+        max-width:max-content;
+        margin: 0 auto;
+      }
+      .slide-container h1 {
+      }
+      .include-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+      .include-char-type {
+        display: flex;
+        width: max-content;
+      }
+      .form-container span {
+        text-align: left;
+      }
+      .checkbox-v-pair {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        margin: 10px 10px;
+
+      }
+      .checkbox-v-pair input,
+      .checkbox-v-pair label {
+        display: block;
+        /* margin-bottom: 10px; */
+        line-height: 1.6;
+      }
+      .submit {
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -25,10 +77,81 @@
           ></textarea>
         </div>
         <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+          <button id="generate" class="btn" >Generate Password</button>
         </div>
+
+
+
+
+
+
+
+
+        <!-- POPUP FORM -->
+        <div class="form-popup" id="pw-criteria-form">
+          <form  class="form-container">
+            <legend>
+              <h2>Password Criteria</h2> 
+            </legend> 
+            
+
+
+
+
+
+            <!--  -->
+            <div class="slide-container">
+              <label for="">Character Count: <span id="charCount"></span></label>
+              <br />
+              <input type="range" min="8" max="128" value="8" name="" class="slider" id="charCountSlider">
+            </div>
+
+
+
+
+
+
+            <!-- CHARACTER TYPE checkbox SELECTION -->
+            <span>Include:</span>
+            <div class="include-container">
+              <div class="include-char-type">
+
+                <div class="checkbox-v-pair">
+                  <label for="lowercase">lowercase</label>
+                  <input type="checkbox" name="char-type" id="lowercase" class="checkbox">
+                </div>
+
+                <div class="checkbox-v-pair">
+                  <label for="capital">capital</label>
+                  <input type="checkbox" name="char-type" id="capital" class="checkbox">
+                </div>
+                
+                <div class="checkbox-v-pair">
+                  <label for="numbers">numbers</label>
+                  <input type="checkbox" name="char-type" id="numbers" class="checkbox">
+                </div>
+                
+                <div class="checkbox-v-pair">
+                  <label for="special">special</label>
+                  <input type="checkbox" name="char-type" id="special" class="checkbox">
+                </div>
+              
+              </div>
+            </div>
+
+            <button type="submit" id="create" class="btn">Create Password</button>
+
+          </form>
+        </div>
+
+
+
+
+
+
       </div>
     </div>
     <script src="script.js"></script>
   </body>
 </html>
+
