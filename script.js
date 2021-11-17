@@ -4,7 +4,7 @@ var createPwBtn = document.querySelector("#create");
 var checkboxes = document.querySelectorAll(".checkbox");
 var pwLengthEl = document.querySelector('#charCountSlider');
 var form = document.querySelector('.form-container');
-var sliderTextView = document.querySelector('#charCount')
+var sliderTextView = document.querySelector('#charCount');
 
 // Define constants
 const lowers = 'abcdefghijklmnopqrstuvwxyz';
@@ -19,10 +19,11 @@ const handleFormToggle = () => {
   var closed = formWrapper.style.display !== "block";
   if (closed) {
     formWrapper.style.display = "block";
-    generateBtn.className = "btn cancel"
+    generateBtn.className = "btn cancel";
   } else {
     formWrapper.style.display = "none";
-    generateBtn.className = "btn"
+    generateBtn.className = "btn";
+    sliderTextView.innerHTML = 8;
     form.reset();
   }
 };
@@ -41,7 +42,7 @@ createPwBtn.addEventListener("click", writePassword);
 /** Returns an element at a random index from a given iterable */
 const getRandomChar = (charType) => {
   let char = Math.floor(Math.random() * charType.length);
-  return charType[char]
+  return charType[char];
 };
 
 /** Returns a String of character combining character types
@@ -83,7 +84,7 @@ const generatePassword = () => {
   }
 
   var password = pwArray.join('');
-  return password
+  return password;
 };
 
 // Write password to the #password input
